@@ -19,8 +19,17 @@ export default function Button({
   this.setIsDisabled(isDisabled);
 
   const $button = this.selected.get('button');
-  $button.addEventListener('click', () => {
+
+  const handleClick = () => {
     this.click();
+  };
+
+  this.listen('mount', () => {
+    $button.addEventListener('click', handleClick);
+  });
+
+  this.listen('unmount', () => {
+    $button.removeEventListener('click', handleClick);
   });
 }
 
@@ -45,12 +54,12 @@ Button.prototype = Object.assign(Button.prototype, Component.prototype, {
   },
 
   disable() {
-    this.selected.get('button').disabled = true;
+    this.selected.get('button').setAttribute('disabled', true);
     this.emit('disable');
   },
 
   enable() {
-    this.selected.get('button').disabled = false;
+    this.selected.get('button').removeAttribute('disabled');
     this.emit('enable');
   },
 
@@ -60,7 +69,7 @@ Button.prototype = Object.assign(Button.prototype, Component.prototype, {
   },
 
   isDisabled() {
-    return this.selected.get('button').disabled;
+    return this.selected.get('button').hasAttribute('disabled');
   },
 
   click() {

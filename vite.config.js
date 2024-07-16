@@ -1,10 +1,12 @@
+/// <reference types="vitest" />
 // vite.config.js
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
+import jsconfigPaths from 'vite-jsconfig-paths';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  root: resolve(__dirname, 'src'),
+  root: resolve(__dirname, 'src/layouts'),
   define: {
     __isBrowser__: true,
   },
@@ -12,14 +14,27 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     root: resolve(__dirname, ''),
+    coverage: {
+      include: ['src/**/*.js'],
+      exclude: ['src/**/*.spec.js'],
+      reportOnFailure: true,
+      thresholds: {
+        lines: 0,
+        statements: 0,
+        branches: 0,
+        functions: 0,
+      },
+      reporter: ['text', 'lcov', 'html', 'json', 'json-summary'],
+    },
     include: ['src/**/*.spec.js'],
+    setupFiles: ['src/__tests__/setup.js'],
   },
   build: {
     outDir: resolve(__dirname, 'dist'),
     rollupOptions: {
       input: {
-        index: resolve(__dirname, 'src/index.html'),
-        home: resolve(__dirname, 'src/home/index.html'),
+        index: resolve(__dirname, 'src/layouts/index.html'),
+        home: resolve(__dirname, 'src/layouts/app/index.html'),
       },
     },
   },
@@ -70,5 +85,6 @@ export default defineConfig({
         display: 'standalone',
       },
     }),
+    jsconfigPaths(),
   ],
 });
