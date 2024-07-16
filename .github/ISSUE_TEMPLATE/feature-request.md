@@ -34,7 +34,6 @@ A clear and short description of the feature.
   </summary>
 
 [Provide any details or suggestions on how this feature could be implemented.]
-
 </details>
 
 <br>

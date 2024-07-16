@@ -1,56 +1,58 @@
-Closes
+---
+name: Feature request
+about: Suggest a feature to be added to Petdex
+title: ''
+labels: ''
+assignees: ''
+---
 
-<details open> 
+**Describe the feature**
+A clear and short description of the feature.
+
+<details open>
   <summary>
-    <b>Feature</b>
+    <b>Description</b>
   </summary>
-
-N/A
-
+  [Describe the new feature requested.]
 </details>
 
-<details open> 
-  <summary>
-    <b>Bugfix</b>
-  </summary>
-
-- **Description**
-  N/A
-
-- **Cause**
-  N/A
-
-- **Solution**
-N/A
-</details>
+<br>
 
 <details> 
   <summary>
-    <b>Changelog</b>
+    <b>Use Case</b>
   </summary>
-N/A
+  
+[Explain the use for this feature and how it might benefits the project.]
 </details>
 
-<details open> 
-  <summary>
-    <b>Visual evidences :framed_picture:</b>
-  </summary>
-
-</details>
-
-<details open> 
-  <summary>
-    <b>Checklist</b>
-  </summary>
-
-- [ ] Issue linked
-- [ ] Build working correctly
-- [ ] Tests created
-</details>
+<br>
 
 <details> 
   <summary>
-    <b>Additional info</b>
+    <b>Implementation Details</b>
   </summary>
-N/A
+
+[Provide any details or suggestions on how this feature could be implemented.]
+</details>
+
+<br>
+
+<details> 
+  <summary>
+    <b>Visual Concepts</b>
+  </summary>
+
+[Include any visual representations or concepts if those are available and applicable.]
+
+</details>
+
+<br>
+
+<details> 
+  <summary>
+    <b>Additional Information</b>
+  </summary>
+  
+[Provide any additional information, such as context that might be relevant to the implementation of this specific feature.]
 </details>
