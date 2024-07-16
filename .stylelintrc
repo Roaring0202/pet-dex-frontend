@@ -1,10 +1,14 @@
 {
-  "extends": "stylelint-config-sass-guidelines",
-  "plugins": [
-    "stylelint-order"
+  "extends": [
+    "stylelint-config-sass-guidelines",
+    "stylelint-prettier/recommended"
   ],
+  "plugins": ["stylelint-order", "stylelint-scss", "stylelint-color-format"],
   "rules": {
-    "scss/dollar-variable-pattern": "(^[a-z])[A-Za-z0-9]+$", 
+    "color-format/format": {
+      "format": "rgba"
+    },
+    "scss/dollar-variable-pattern": "(^[a-z])[A-Za-z0-9]+$",
 
     "max-nesting-depth": 20,
 
@@ -12,7 +16,7 @@
 
     "selector-max-compound-selectors": 10,
     "selector-class-pattern": [
-      "(^[a-z])[a-z0-9-]+$",
+      "(^[a-z])[a-z0-9-_]+$",
       {
         "message": "Classes should be wrote as kebab-case",
         "severity": "error"
